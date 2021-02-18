@@ -22,7 +22,7 @@ const Hero = ({ post }: HeroProps) => {
       </div>
       <div className="md:grid md:grid-cols-2 mt-10 md:gap-16 lg:gap-8">
         <div>
-          <h3 className="text-4xl font-bold text-gray-900">
+          <h3 className="text-4xl font-bold text-gray-900 hover:underline">
             <Link as={`/posts/${post.slug}`} href="/posts/[slug]">
               <a>{post.title}</a>
             </Link>
