@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import { format } from 'date-fns';
 import { Post } from '../interfaces';
+import { toDate } from '../lib/format-date';
+
+// components
 import AuthorCard from './author-card';
 
 export type HeroProps = {
@@ -8,7 +10,7 @@ export type HeroProps = {
 };
 
 const Hero = ({ post }: HeroProps) => {
-  const publishedAt = format(new Date(post.published_at), "MMMM d',' Y");
+  const publishedAt = toDate(post.published_at);
   return (
     <section>
       <div>
