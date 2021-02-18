@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { format } from 'date-fns';
 import { Post } from '../interfaces';
+import AuthorCard from './author-card';
 
 export type HeroProps = {
   post: Post;
@@ -25,11 +26,12 @@ const Hero = ({ post }: HeroProps) => {
             </Link>
           </h3>
           <div className="mt-2">
-            <p className="text-base text-gray-900">{publishedAt}</p>
+            <p className="text-base text-gray-800">{publishedAt}</p>
           </div>
         </div>
         <div>
-          <p className="text-lg text-gray-700">{post.description}</p>
+          <p className="text-lg text-gray-600">{post.description}</p>
+          <AuthorCard author={post.author} />
         </div>
       </div>
     </section>
