@@ -10,8 +10,6 @@ export const GET_ALL_POSTS = gql`
       image {
         url
       }
-      tags
-      content
       author {
         username
         picture {
@@ -20,6 +18,29 @@ export const GET_ALL_POSTS = gql`
       }
       published_at
       updatedAt
+    }
+  }
+`;
+
+export const GET_POST = gql`
+  query getPost($where: JSON!) {
+    posts(where: $where) {
+      id
+      slug
+      title
+      tags
+      description
+      image {
+        url
+      }
+      content
+      author {
+        username
+        picture {
+          url
+        }
+      }
+      published_at
     }
   }
 `;
