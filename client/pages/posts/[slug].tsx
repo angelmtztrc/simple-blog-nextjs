@@ -1,19 +1,20 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Post } from '../../interfaces';
-import { GET_ALL_POSTS, GET_POST } from '../../graphql/queries';
 import { gqlClient } from '../../lib/graphql-client';
+import { GET_ALL_POSTS, GET_POST } from '../../graphql/queries';
+import { toDate } from '../../lib/format-date';
 
 // components
 import Layout from '../../components/layout';
 import AuthorCard from '../../components/author-card';
-import { toDate } from '../../lib/format-date';
+import Markdown from '../../components/markdown';
 
 export type ArticleProps = {
   post: Post;
 };
+
 const Article = ({ post }: ArticleProps) => {
   const { title, image, tags, author, published_at, content } = post;
-  console.log(tags);
   return (
     <Layout title={title}>
       <article>
@@ -35,7 +36,9 @@ const Article = ({ post }: ArticleProps) => {
                 </li>
               ))}
           </ul>
-          <div>{/* MARKDOWN HERE */}</div>
+          <div className="mt-10">
+            <Markdown content={content} />
+          </div>
           <div className="mt-5 flex items-center justify-between space-x-8">
             <AuthorCard author={author} />
             <p className="mt-4 text-gray-800">{toDate(published_at)}</p>
