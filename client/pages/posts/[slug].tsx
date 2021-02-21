@@ -36,7 +36,7 @@ const Article = ({ post }: ArticleProps) => {
                 </li>
               ))}
           </ul>
-          <div className="mt-10">
+          <div className="mt-10 prose lg:prose-lg w-full max-w-full">
             <Markdown content={content} />
           </div>
           <div className="mt-5 flex items-center justify-between space-x-8">
