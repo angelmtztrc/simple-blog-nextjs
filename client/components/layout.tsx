@@ -1,5 +1,8 @@
 import Head from 'next/head';
+
+// components
 import Header from './header';
+import Footer from './footer';
 
 export type LayoutProps = {
   children: React.ReactNode;
@@ -14,6 +17,7 @@ const Layout = ({ children, title }: LayoutProps) => {
       </Head>
       <Header />
       <main className="container mx-auto mt-10">{children}</main>
+      <Footer />
     </div>
   );
 };

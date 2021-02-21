@@ -7,7 +7,6 @@ import { GET_ALL_POSTS } from '../graphql/queries';
 import Layout from '../components/layout';
 import Hero from '../components/hero';
 import MorePosts from '../components/more-posts';
-import Footer from '../components/footer';
 
 export type HomePageProps = {
   hero: Post;
@@ -19,7 +18,6 @@ const HomePage = ({ hero, posts }: HomePageProps) => {
     <Layout title="Home">
       <Hero post={hero} />
       <MorePosts posts={posts} />
-      <Footer />
     </Layout>
   );
 };
